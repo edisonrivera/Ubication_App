@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mi Ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button (click)="getCurrentCoordinates()" expand="block">Conocer Mi Ubicación</ion-button>
+    <ion-list>
+      <ion-list-header>
+        <ion-text color="secondary" class="">
+          Coordenadas de la Ubicación
+        </ion-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Latitude</ion-label>
+        <ion-badge color="danger" slot="end">{{latitude}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Longitud</ion-label>
+        <ion-badge color="danger" slot="end">{{longitude}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Google Maps</ion-label>
+        <a href="{{url}}" target="_blank">Abrir En Google Maps 🗺️</a>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-list lines="none" *ngIf="(ubications) as ubication$">
+    <ion-item-group class="chats-group" *ngFor="let ubication of ubications">
+      <ion-item>
+        Latitud: {{ubication.latitude}} |
+        Longitud: {{ubication.longitude}} |
+        Url: <a href="{{ubication.url}}" target="_blank">Abrir En Google Maps 🗺️</a>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
